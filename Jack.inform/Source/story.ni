@@ -1,41 +1,40 @@
  "Jack" by Jason Lautzenheiser
 
-Volume - Bibliography
+Volume 1 - Bibliography
 
 The story genre is "Horror".
 The story headline is "A Halloween Story".
+The story author is "Jason Lautzenheiser".
 The release number is 2.
-The story creation year is 2013.
+The story creation year is 2015.
 
-Volume - Extensions
+Volume 2 - Extensions
 
+Include Punctuation Removal by Emily Short.
 Include Supplemental Actions by Al Golden.
-[Include Plurality by Emily Short.]
+Include Typographical Conveniences by Daniel Stelzer.
 
-Volume - Extensions (not for release)
+Volume 3 - Extensions (not for release)
 
-[Include Property Checking by Emily Short.]
-[Include Direction Response Testing by Andrew Schultz.]
-[Include Object Response Tests by Juhana Leinonen.]
- Include Response Assistant by Aaron Reed.
+Include Response Assistant by Aaron Reed.
 
 Use no scoring and full-length room descriptions. 
 Use American dialect.
 
-Volume - Release
+Volume 4 - Release
 
 Release along with cover art.
 
-Volume - Game Settings
+Volume 5 - Game Settings
 
-Book - Credits
+Book 1 - Credits
 
 Abouting is an action out of world applying to nothing.
 Understand "about" as abouting.
 Understand  the command "credits" or "info" as "about".
 
 Report abouting:
-	say "[Story Title] was created originally for the EctoComp13 and was created in under 3 hours in Inform 7.  Inform 7 is the work of Graham Nelson.  The first release was quickly beta-tested by my son Trey Lautzenheiser, who doesn't normally play IF, but offered some valuable advice.  I've since expanded the game into something a bit more fleshed out.  Hope you enjoy.  
+	say "[Story Title] was created originally for the EctoComp13 and was created in under 3 hours in Inform 7.  The first release was quickly beta-tested by my son Trey Lautzenheiser, who doesn't normally play IF, but offered some valuable advice.  I've since expanded the game into something a bit more fleshed out.  Hope you enjoy.  
 	
 It may be distributed for free, but not sold or included in any for-profit collection without written permission from the author.
 	
@@ -43,23 +42,162 @@ Any bug reports or suggestions are welcome and can be emailed to lautzenheiser.j
 
 Check out my IF related blog at lautzofif.wordpress.com."
 
-Book - Uberstart
+Book 2 - Miscellaneous Fixes
 
-The uberstart rules are a rulebook.
-After printing the banner text, say "Copyright © 2013 - 2015, Jason Lautzenheiser."
+Part 1 - Beta Comments
+
+First after reading a command (this is the ignore beta-comments rule):
+	if the player's command matches the regular expression "^(\p|\*)":
+		say "(Noted.)";
+		reject the player's command.
+		
+Understand "bug" or "bug [text]" as a mistake ("!!! BUG !!![br][note][bracket]Bug flagged.[close bracket][/note]");
+
+Part 2 - Pronouns
+
+To set the/-- pronoun it to (O - an object): (- LanguagePronouns-->3 = {O}; -).
+To set the/-- pronoun him to (O - an object): (- LanguagePronouns-->6 = {O}; -).
+To set the/-- pronoun her to (O - an object): (- LanguagePronouns-->9 = {O}; -).
+To set the/-- pronoun them to (O - an object): (- LanguagePronouns-->12 = {O}; -).
+
+Part 3 - Modifications to Standard Actions
+
+instead of pushing or pulling or turning an open door:  try closing the noun.
+instead of pushing or pulling or turning a closed door:  try opening the noun.
+
+Rule for deciding whether all includes scenery:  it does not.
+Rule for deciding whether all includes people while taking: it does not.
+Rule for deciding whether all includes fixed in place things while taking: it does not.
+
+The can't go through undescribed doors rule is not listed in the check going rulebook.
+
+The describe what's on scenery supporters in room descriptions rule is not listed in any rulebook.
+The examine supporters rule is not listed in any rulebook.
+
+The examine devices rule is not listed in the carry out examining rules. 
+	
+Understand "release [something]" as dropping.
+Understand "slide [something]" as pushing.
+
+To say verb word: (- print (address) verb_word; -).
+
+Part 4 - Emptiness
+
+Definition: a container is empty if the first thing held by it is nothing.
+Definition: a supporter is empty if the first thing held by it is nothing.
+
+Part 5 - Standard Responses
+
+The block saying sorry rule response (A) is "You mumble something apologetic under your breath."
+The parser error internal rule response (R) is "I'm not sure what you're talking about."
+
+Part 6 - Input editing
+
+First after reading a command:
+	remove stray punctuation.
+
+Part 7 - Versioning
+
+report requesting the story file version:
+	say "[i]Internal alpha 1.1[/i]"
+
+Part 8 - Not for release
+
+When play begins, seed the random-number generator with 69.
+
+[Some code provded by Matthew Slattery to increase the size of the Glk game during the writing cycle...:]
+Include (-
+
+[ INitGlkWindow rock incr i base;
+	if (rock == GG_MAINWIN_ROCK) {
+		incr = 2;	! adjust to taste
+		for (i= 0 : i < style_NUMSTYLES : i++) {
+			switch (i) {
+				style_Header: base = 4;
+				style_Subheader: base = 1;
+				style_Alert: base = 1;
+				default: base = 0;
+			}
+			glk_stylehint_set(wintype_AllTypes, i, stylehint_Size, base + incr);
+		}
+	}
+	rfalse;
+];
+
+-) after "Definitions.i6t".			
+
+
+Book 2 - Examining
+
+A thing can be examined or unexamined.  A thing is usually unexamined.  
+Carry out examining something:
+	now the noun is examined.
+	
+Book 3 - Listening and Sounds
+
+Book 4 - Odors
+
+Book 5 - Stairs
+
+Book 6 - Doors
+
+Book 2 - Reading / Writing
+
+A thing has some text called printing.  The printing of a thing is usually "blank".
+
+Definition:  a thing is legible if the printing of it is not "blank".
+
+After examining a legible thing:  try reading the noun.
+
+Book 8 - Properties of a room
+
+Definition: a room is locally-present if it is the location.
+
+An outdoor room is a kind of room.
+An indoor room is a kind of room.
+
+A room can be passable or impassible. A room is usually passable.
+Instead of going to an impassible room (this is the can't go to impassible rooms rule): say "You can't go that way any more."
+Instead of someone going to an impassible room (this is the NPCs can't go to impassible rooms rule): stop the action.
+
+Book 9 - Valid directions
+
+Definition: a direction (called thataway) is viable if the room thataway from the location is a room.
+
+Instead of going nowhere:
+	let count of exits be the number of viable directions;
+	if the count of exits is 0, say "You appear to be trapped in here." instead;
+	if the count of exits is 1, say "From here, the only way to go is [a list of viable directions].";
+	otherwise say "From here, the viable exits are to [a list of viable directions]."
+	
+A direction can be proper-named. Down is proper-named. Up is proper-named.
+
+Book 10 - Look at Location as LOOK
+
+Understand "here" or "surroundings" as a room when the item described is the location.
+
+Understand "examine [any locally-present room]" or "look at [any locally-present room]" or "look [any locally-present room]" as local looking.  
+Understand "look around" as looking.
+
+Local looking is an action applying to one thing.
+
+Carry out local looking:
+	try looking.
+
+
+Book 3 Game start
+
+After printing the banner text, say "Copyright © 2013 - 2015, Falcon Fiction."
 The time of day is 11:00 PM.
 
 When play begins:
 	say "Suddenly awareness comes to you and your surroundings.  You look around slowly, seeing nothing at first, then in the moon light you find yourself in the middle of a pumpkin patch.   Looking down at your feet you see straw coming out of the bottom of your pants and fallling over your boots.  In wonderment you notice your hands for the first time and see straw coming out of your sleeves as well.  As you stare at your hands you notice a strange glow seemingly coming from within you.  You start to run your fingers through your hair only to realize you have none.  As you stand there in shock over what you've become you realize you have nothing but vague memories of a time before the pumpkin patch.  You look around and see large pumpkins that seem to have the same shape as your head.  It all comes flooding back to you.....you are Jack....Jack Halloween.";
-	follow the uberstart rules.
-	
-An uberstart rule:
 	now the left hand status line is "[the player's surroundings] / Moves: [turn count] ";
 	now the right hand status line is "Time: [time of day]";
 	now the player is in The-Pumpkin-Patch;
+	
 
-
-Book - Definitions
+Book 4 Definitions
 
 A person can be hiding.
 A person can be conscious or unconscious.  A person is usually conscious.
@@ -69,14 +207,12 @@ A thing can be seen or unseen. A thing is usually unseen. The player is seen. Af
 
 Rule for printing room description details: do nothing.
 
-Chapter - Secondary Location
-
-Chapter - Kinds
+Chapter 1 Kinds
 
 A fardrop is a kind of backdrop.
 A writing is a kind of thing.  A writing can be noticed or unnoticed.  A writing is usually unnoticed.
 
-Chapter - Prose Name
+Chapter 2 Prose Name
 
 Every room has some text called prose name. The prose name of a room (called locale) is usually "NULL".   
 To say the prose version of (place - a room): if the prose name of place is "NULL", say "[printed name of place]"; otherwise say "[prose name of place]".
@@ -84,7 +220,7 @@ To say the prose version of (place - a room): if the prose name of place is "NUL
 Every thing has some text called prose name. The prose name of a thing (called item) is usually "NULL".   
 To say the prose version of (item - a thing): if the prose name of item is "NULL", say "[printed name of item]"; otherwise say "[prose name of item]".
 
-Chapter - Flimsy
+Chapter 3 Flimsy
 
 A flimsy is a kind of thing.  A flimsy has some text called the action-refusal.  The action-refusal of a flimsy is usually "".  A flimsy is usually fixed in place, undescribed.
 
@@ -102,17 +238,15 @@ instead of doing anything to a flimsy:
 	if the action-refusal of the noun is "", say "[brush-off of noun]";
 	otherwise say "[action-refusal of the noun][paragraph break]".
 
-Book - Easter Eggs
+Book 5 Easter Eggs
 
 Understand "plugh" or "xyzzy" or "frotz" or "plover" as a mistake("Though you can't speak a noise arises from deep within.  The glow coming from your eyes briefly increases then just as quickly fades away.").
 Understand "* [text]" as a mistake("Noted.").
 
 
-Book - Player
+Book 6 Player
 
 The player is man named Jack.  The description of Jack is "You are very tall.  You are wearing [overalls] and a [flannel shirt].  There is [straw] slowly falling out of your sleeves and pants legs leaving a trail behind as you walk.  [first time]As you raise your hands to your heavy head and move to run your hands through your hair, you feel nothing but a cool, hard shell of a pumpkin.[only]"
-
-
 
 Understand "you" or "body" as yourself.
 
@@ -131,40 +265,23 @@ Instead of taking off something worn by the player:
 Instead of jumping:
 	say "Jumping would only attract attention to yourself."
 
-Volume - Mechanics
+Volume 6 Mechanics
 
 
 Rule for printing a parser error when the latest parser error is the I beg your pardon error: 
 	say "What's that? Speak up, speak up." instead.
 
-Book - Acting Fast
+Book 1 Acting Fast
 
 Examining something is acting fast. Looking is acting fast.  Taking inventory is acting fast.
 
 The take visual actions out of world rule is listed before the every turn stage rule in the turn sequence rules.
 This is the take visual actions out of world rule: if acting fast, rule succeeds.
 
-Book - Reading
-
-A thing has some text called printing.  The printing of a thing is usually "blank".
-
-Definition:  a thing is legible if the printing of it is not "blank".
-
-[Understand the command "read" as something new.
-Understand "read [something]" or "consult [something]" or "read in/from [something]" as reading.  
-
-Understand "read [something]" as reading. 
-Check reading:  if the printing of the noun is "blank", say "Nothing is written on [the noun]." instead.  
-Carry out reading:
-	let typing be the printing of the noun;
-	say "[italic type][typing][roman type][paragraph break]".
-
-Report reading: do nothing.
-]
-Book - Looking
+Book 3 Looking
 
 
-Chapter - Looking in a direction
+Chapter 1 Looking in a direction
 
 instead of looking south, try facing south instead.
 instead of looking north, try facing north instead.
@@ -189,18 +306,18 @@ Instead of looking up:
 Instead of looking down: 
 	say "You stare down at the ground and feel an urge to just lie down and let it end, but something far stronger is pulling you onward."
 
-Chapter - Looking toward something
+Chapter 2 Looking toward something
 
 Understand "examine [any adjacent room]" as examining.
 Instead of examining a room: 
 	say "Over in [the prose name of the noun], you can see [a list of visible things in the noun]."
 
-Understand "look toward [any adjacent room]" as looking toward. Understand "examine [any adjacent room]" as looking toward.
+Understand "look toward [any adjacent room]/examine [any adjacent room]" as looking toward. 
 Looking toward is an action applying to one visible thing.
 Carry out looking toward: 
 	say "You make out [the prose name of the noun] that way."
 
-Book - Secret Doors
+Book 4 Secret Doors
 
 [Adapted from Secret Doors extension by Andrew Owen]
 A secret door is a kind of door.
@@ -238,9 +355,9 @@ Before doing something when a secret switch is the second noun and the second no
 	print the you can't see message instead.]
 	
 	
-Volume  - The World
+Volume 7 The World
 
-Book - Fardrops
+Book 1 Fardrops
 
 The full moon is a fardrop.  The full moon is everywhere.  The description of the full moon is "The great orb of the full moon hangs high in the sky.  The moon reflects enough light in the cloudless sky to provide a clear view of much of the landscape."
 
@@ -251,15 +368,15 @@ Instead of taking a fardrop:
 	say "If you could, you would....but where would you take it?"
 	
 
-Book - Neverland
+Book 2 Neverland
 
 Neverland is a room.
 
-Book - Outside town 
+Book 3 Outside town 
 
 Outside-town is a region.
 
-Chapter - Pumpkin Patch
+Chapter 1 Pumpkin Patch
 
 The-Pumpkin-Patch is a room.  The-pumpkin-patch is in outside-town.  The printed name is "In the Pumpkin Patch".  The description is "You are standing in a middle of a pumpkin patch.   The light from the [full moon] allows you to see some distance around you.  The pumpkin patch goes on as far as you can see except to the south where you can make the outline of a [road]."
 
@@ -267,7 +384,7 @@ Understand "pumpkin patch" as the-pumpkin-patch.
 
 The prose name of The-Pumpkin-Patch is "the pumpkin patch".
 
-Chapter - Road
+Chapter 2 Road
 
 The Road is a room.  The road is in outside-town. The printed name is "road".  The road is south of The-Pumpkin-Patch.  The description is "[if the player is hiding]You are lying in the ditch along side the road.  In the darkness, you probably look like nothing more than another pumpkin amongst thousands.[otherwise]You are standing in the middle of a dirt road to the south of a large field of pumpkins.  Along the north side of the road is a shallow ditch.  The road stretches on to the east and west.[end if][if not visited][paragraph break]Looking up the road, you see a set of [headlights] headed in your direction.  Something screams in your very soul that you need to hide, you don't think it would be wise to be caught in the open in your state."
 The prose name of road is "the road".
@@ -296,25 +413,25 @@ As the car flies back up the road one of its hubcaps comes off and lands in the 
 			say "As the car slows down you hear someone yell, 'There he is....old Jack is still in the pumpkin patch.'  You hear the sound of gun fire and something whistles pass your head.  You take off running as more shots whizz close.  Just as you think you may get away, one slams into the back of your head.  As the light dims from your eyes, your last thought was 'Next year....'.";
 		End the story saying "Thus ends this halloween.....the town wins again and poor Jack Halloween waits another year for his revenge upon the town".
 		
-Section - Ditch 
+Section 1 Ditch 
 
 The ditch is undescribed and fixed in place container in the road.  The ditch is enterable. The description of the ditch is "The ditch is very shallow, not much more than an light impression along the road.  Pumpkin vines from the field have encrouched slightly into the ditch."
 
 Instead of entering the ditch:
 	try lying down instead.
 
-Section - Headlights
+Section 2 Headlights
 
 The headlights are an undescribed thing in the road.  The description of headlights is "The car is still off in the distance, but it appears to be moving quickly in your direction."
 Understand "car/vehicle/lights/truck" as headlights.
 Instead of examining the headlights when the headlights are in neverland:
 	say "Luckily you don't see any."
 
-Section - Hubcap
+Section 3 Hubcap
 
 The hubcap is a thing. The hubcap is throwable.  The description of hubcap is "Really nothing more than a rusty piece of metal that was loosly attached to the wheel of the car.  It is flat and looks like if you threw it like a frisbee it would go a great distance."	
 
-Section - Actions 
+Section 4 Actions 
 
 Before going east in the road:
 	if the headlights are not in neverland:
@@ -333,7 +450,7 @@ Before going in the road:
 		say "You get up out of the ditch first.";
 		now the player is not hiding;
 	
-Chapter - Edge of town
+Chapter 3 Edge of town
 
 The edge-of-town is a room.  The edge-of-town is in outside-town.  The printed name is "The Edge of Town".  The edge-of-town is east of the road.   The prose name of edge-of-town is "the edge of town".
 
@@ -349,7 +466,7 @@ Report going to the edge-of-town for the first time:
 	now the player is hiding.
 
 
-Section - Patroller
+Section 1 Patroller
 
 The patroller is a man.  The printed name of patroller is "young man".  The patroller is in the edge-of-town.  The patroller is conscious.  The description of the patroller is "He is just a young boy, perhaps in his early teens.  [if the patroller is conscious]In one hand he carries a large machete and slung from one shoulder is a rifle.[end if]  [if the patroller is unconscious and the patroller is alive]He is laying on the ground with a large lump on his head.  He appears to still be breathing so he may come to at any moment so you may want to hurry.[end if][if the patroller is dead]Embedded in his head is the hubcap you just threw.[end if]".
 
@@ -362,7 +479,7 @@ Before listing nondescript items when the patroller is unconscious:
 		now the patroller is not marked for listing.
 
 
-Section - Pickup Truck
+Section 2 Pickup Truck
 
 The pickup truck is a enterable openable transparent closed fixed in place container.   The pickup truck is locked.  The initial appearance of the pickup truck is "The rusty blue Ford truck sitting along the edge of the road has seen better days.  [if number of things in the truck-bed is greater than 0]Leaning against the bed of the truck you see [a list of things in the truck-bed].[end if]".  The pickup truck is in the edge-of-town.
 
@@ -376,7 +493,7 @@ Instead of opening the pickup truck:
 Instead of entering the pickup truck:
 	say "You attempt to open the truck but it is locked."
 
-Section - Shovel
+Section 3 Shovel
 
 The shovel is a thing.  The shovel is in the truck-bed.   The description of shovel is "The garden shovel has some fresh dirt on it."  
 The shovel can be noticed or unnoticed.  The shovel is unnoticed.
@@ -384,21 +501,21 @@ The shovel can be noticed or unnoticed.  The shovel is unnoticed.
 [Rule for deciding whether all includes unseen things: it does not.]
 
 
-Section - Fence
+Section 4 Fence
 
 The chainlink fence is a flimsy.  The chainlink fence is in the edge-of-town.  
 
-Section - Machete
+Section 5 Machete
 
 The machete is a thing.  The description of machete is "[if the patroller carries the machete]The machete looks dangerous enough that I don't want to attract his attention and find out how dangerous it truly is.[otherwise]A rusty machete, but still sharp enough it could have sliced through your pumpkin head.[end if]".
 The machete is carried by the patroller.  
 
-Section - Rifle
+Section 6 Rifle
 
 The rifle is a thing.  The description of rifle is "A .270 Winchester rifle.  Powerful enough to spread the pumpkin seeds in your head all over the road."
 The rifle is carried by the patroller.
 
-Section - Actions
+Section 7 Actions
 
 The futile to throw things at inanimate objects rule is not listed in the check throwing it at rules.
 The block throwing at rule is not listed in the check throwing it at rules.
@@ -465,11 +582,11 @@ Before going west in edge-of-town:
 Instead of shouting:
 	say "As you begin to yell out you realize that your mouth does not move and you have no voice."			
 	
-Book - Inside Town
+Book 4 Inside Town
 
 Inside-town is a region.
 
-Chapter - Town Square
+Chapter 1 Town Square
 
 The town-square is a room.  The town-square is in inside-town.  The printed name  is "The Town Square".  The town-square is east of the edge-of-town.  The description is "[if the player is hiding]You are hiding behind the [fountain] in the town square.[otherwise]You are standing in the center of town. [end if] You can head back out of town to the west.  There is an old church off to the north and the townhall building is on the south side of the square.  Rising above the townhall is a large clock tower.  [if the player is not hiding]In the center of the square is a [fountain].[end if]"  
 
@@ -479,7 +596,7 @@ Report going to the town-square:
 		now the player is hiding;
 		increase the count of shooter by 1.
 
-Section  - Fountain
+Section 1 Fountain
 
 Before examining something not carried by the player when the shooter is alive:
 	if the noun is the clock tower:
@@ -497,7 +614,7 @@ The severed head is part of the statue.   The description of the severed head is
 
 The plaque is part of the statue.  The description of the plaque is "You can just make out the text of the plaque that reads: [italic type][line break]Reverend Josef Karlmann -  July 7, 1777[line break]That which I see not teach thou me: if I have done iniquity, I will do no more.[roman type]".
 
-Section - Shooter
+Section 2 Shooter
 
 The shooter is a man.  The shooter is in the town-square.  The shooter is conscious.  The shooter is hiding.  The description of the shooter is "[shooter-description][run paragraph on]".   The shooter has a number called count.  The count of shooter is 0.
 
@@ -520,7 +637,7 @@ Before listing nondescript items when the shooter is not hiding:
 			say "There is a shooter in the clock tower.";
 		now the shooter is not marked for listing.
 
-Section - Clock Tower
+Section 3 Clock Tower
 
 The clock tower is scenery in the town-square.  The description of the clock tower is "[clock-tower-description][run paragraph on]".
 
@@ -546,7 +663,7 @@ Every turn while the player is in town-square and the shooter is conscious:
 To say random-shot-direction:
 	say "[one of]to the left[or]to the right[or]in front of[purely at random]".
 
-Section - Shooting
+Section 4 Shooting
 
 Instead of shooting:
 	if the player carries the rifle:
@@ -561,7 +678,7 @@ Instead of shooting:
 	otherwise:
 		say "You have nothing to shoot anyone with.";
 		
-Section - Going Action
+Section 5 Going Action
 
 Before going nowhere in the town-square:
 	if the shooter is conscious:
@@ -580,7 +697,7 @@ Before going west in the town-square:
 	otherwise: 
 		say "You feel a strong urge pulling you north to the church...you can't resist going that way." instead;
 		
-Chapter - Old Church
+Chapter 2 Old Church
 
 The old-church is a room.  The old-church is in inside-town.  The printed name is "An Old Church".  The old-church is north of the town-square.  The description is "You are outside an old church.  The church has seen better years.  The entrance to the church is to the north.  Behind the church to the east you see a small overgrown cemetery.  Back to the south is the town square."
 
@@ -591,7 +708,7 @@ Before going nowhere in the old-church:
 	say "The urge to go to the cemetery is so strong, you can think of nothing else." instead.
 
 
-Chapter - cemetery
+Chapter 3 cemetery
 
 The cemetery is a room.  The cemetery is in inside-town.  The printed name is "The Cemetery".  The cemetery is east of the old-church.  
 
@@ -602,27 +719,27 @@ As you fall to your knees, the screams coming from the town can be heard far abo
 	end the story saying "Rest in peace, Jack Halloween.....next year will come and go.";
 
 
-Book - Church
+Book 5 Church
 
 Inside-church is a region.  Inside-church is in inside-town.
 
-Chapter - Church Vestibule
+Chapter 1 Church Vestibule
 
 The vestibule is a room.  The printed name is "Church Vestibule".  The vestibule is inside of old-church.  The vestibule is in inside-church.  The description of vestibule is "You are in the church vestibule.  To the north is the nave of the church.  The exit is back to the south."
 
 Instead of going south in the vestibule:
 	try exiting instead.
 	
-Chapter - Church Nave
+Chapter 2 Church Nave
 
 The nave is a room.  The printed name is "Church Nave".  The nave is in inside-church.  The nave is north of the vestibule.
 The description of nave is "The nave of the church. To the north is the altar.  The vestibule is to the south."
 
-Chapter - Altar
+Chapter 3 Altar
 
 The altar is a room.  The printed name is "Altar".  The altar is in inside-church.  The altar is north of the nave.  The description of altar is "You've come to the altar at the head of the church.   The [pulpit] from which the pastor would deliver the sermon, stands in the in front of the altar.   Hanging on the wall behind the pulpit is a large [cross].  Instead of a typical crucifix, nailed to this cross is a [body] dripping blood with a [pumpkin] on its head.  To the west is a set of stairs and the church office is to the east.  You can move into the nave by heading south."
 
-Section - pulpit
+Section 1 pulpit
 
 The pulpit is an undescribed thing in the altar.   The description of pulpit is "[if move-count of pulpit is 0]The wooden pulpit faces looking out into the congregation.  As you examine it you notice it is not sitting evenly on the floor and could easily be moved around the altar area[otherwise]The pulpit is moved up against the wall out of the way of the trapdoor[end if]."
 The pulpit has a number called move-count.  The pulpit can be pushed.
@@ -638,7 +755,7 @@ instead of pushing the pulpit:
 		now the pulpit is pushed;
 		now the trapdoor is revealed.
 
-Section - tattered bible
+Section 2 tattered bible
 
 The tattered bible is a thing on the pulpit.  The description of tattered bible is "The large bible is very old and very tattered.  It is lying open to the book of Revelations."  The printing of the tattered bible is "Don't be afraid of what you are about to suffer.  The Devil will throw some of you into prison and put you to the test.  You will be persecuted for ten days.  Remain faithful even when facing death, and I will give you a crown of life."
 
@@ -661,79 +778,79 @@ instead of reading verse:
 		let typing be the printing of the tattered bible;
 		say "[italic type][typing][roman type][paragraph break]".
 
-Section - cross
+Section 3 cross
 
 The cross is a thing in the altar.  The cross is fixed in place, undescribed.  Understand "crucifix" as the cross.  The description of cross is "The cross hangs on the north wall behind the pulpit.  It is a large wooden cross that is easily ten feet tall.  Nailed to the cross is a body that has a large pumpkin where it's head should be.  The [blood] is still fresh and drips down the bottom of the cross onto the floor."
 
-Section - blood
+Section 4 blood
 
 The blood is a thing in the altar.  The blood is fixed in place.  "The blood drips down the cross and falls into a pool the ground.  The pool of blood is slowly running down into a space below the pulpit."
 
-Section - body
+Section 5 body
 
 The body is a thing.  The body is part of the cross.  The description of body is "The body is that of a young man.  Covered in only a loin cloth, the body is nailed to the cross, one nail in each wrist and one through both feet.  The man's head is missing and in its place is a large pumpkin.  Written on the body in blood is 'Rev 2:10'."
 
 After examining the body for the first time:
 	now the verse is noticed.
 
-Section - pumpkin
+Section 6 pumpkin
 
 The pumpkin is a thing.  The pumpkin is part of the body.  The description of the pumpkin is "The large pumpkin sits loosely where the head of the man should be.  It has been carved is a fashion that you suspect looks a lot like yourself.   A faint light flickers deep within it's eyes, then goes out."
 
-Section - Trapdoor
+Section 7 Trapdoor
 
 The trapdoor is a secret door.  The trapdoor is down from altar and up from conclave entrance.    The description of trapdoor is "A small wooden door set into the floor of the church with a large iron ring."
 Understand "door" as trapdoor.
 
 [Understand "pull ring" as opening the trapdoor.]
 
-Chapter - Conclave Entrance
+Chapter 4 Conclave Entrance
 
 The conclave entrance is a room.  The printed name is "Entrance to Conclave".  The conclave entrance is down from trapdoor.  The conclave entrance is in inside-church.
 
 [16:10 For thou wilt not leave my soul in hell; neither wilt thou suffer thine Holy One to see corruption.” (Psalm 16:10 KJV)]
-Chapter - Meeting room
+Chapter 5 Meeting room
 
 The conclave-meeting-room is a room.  The printed name is "Conclave Meeting Room".  The conclave-meeting-room is south of the conclave entrance.  The conclave-meeting-room is in inside-church.
 
-Chapter - Church Office
+Chapter 6 Church Office
 
 The church-office is a room.  The printed name is "Church Office".  the church-office is in inside-church.  The church-office is east of the altar.
 
-Chapter - Stairs to Bell Tower
+Chapter 7 Stairs to Bell Tower
 
 The belltower-stairs is a room.  The printed name is "Stairs to Bell Tower".  The belltower-stairs is in inside-church.  The belltower-stairs is west of  altar.
 
-Chapter - Bell Tower
+Chapter 8 Bell Tower
 
 The bell tower is a room.  The printed name is "Bell Tower".  The bell tower is in inside-church.  The bell tower is up from belltower-stairs.
 
-Book - Town Hall
+Book 6 Town Hall
 
 Town-hall is a region.  Town-hall is in inside-town.
 
-Chapter - Portico
+Chapter 1 Portico
 
 The portico is a room.  The portico is south of town-square.  The portico is in inside-town.
 
-Chapter - Reception Area
+Chapter 2 Reception Area
 
 The reception area is a room.  The printed name is "Reception Area".  The reception area is inside from portico.  The reception area is in town-hall.
 
-Chapter - Mayor office
+Chapter 3 Mayor office
 
 The mayors office is a room.  The printed name is "Office of the Mayor".  The mayors office is west of the reception area.  The mayors office is in town-hall.
 
-Chapter - File room
+Chapter 4 File room
 
 The file room is a room.  The printed name is "File Room".  The file room is south of reception area.  The file room is in town-hall.
 
-Chapter - Clock Tower
+Chapter 5 Clock Tower
 
 The clock-tower is a room.  The printed name is "Clock Tower".  The clock-tower is up of file room.  The clock-tower is in town-hall.
 
 
-Book - Movement
+Book 7 Movement
 
 Instead of going nowhere in The-Pumpkin-Patch:
 	say "The pumpkin patch goes on forever and you feel an strong urge to leave."
@@ -742,7 +859,7 @@ Instead of going west in the road:
 	say "You start to wander down the road to the west, but you feel an urge so deeply within your soul that that is not the way you need to go."
 	
 
-Book - Lying Down
+Book 8 Lying Down
 
 Lying down is an action applying to nothing.  
 Understand "lie down" as lying down.  
@@ -759,7 +876,7 @@ Instead of lying down when the location is the road:
 	say "You lie down in the ditch along the road.";
 	now the player is hiding.
 
-Volume - Tests
+Volume 8 Tests
 
 test edgeoftown with "s/hide/z/e".
 test church with "s/hide/z/e/throw hubcap at man/take all/e/x clock tower/shoot shooter/n".
