@@ -8,10 +8,12 @@ The story author is "Jason Lautzenheiser".
 The release number is 2.
 The story creation year is 2015.
 
+
+
 Volume 2 - Extensions
 
 Include Punctuation Removal by Emily Short.
-Include Supplemental Actions by Al Golden.
+[Include Supplemental Actions by Al Golden.]
 Include Typographical Conveniences by Daniel Stelzer.
 
 Volume 3 - Extensions (not for release)
@@ -43,6 +45,8 @@ Any bug reports or suggestions are welcome and can be emailed to lautzenheiser.j
 Check out my IF related blog at lautzofif.wordpress.com."
 
 Book 2 - Miscellaneous Fixes
+
+To say verbword: (- print (address) verb_word; -).
 
 Part 1 - Beta Comments
 
@@ -127,21 +131,62 @@ Include (-
 -) after "Definitions.i6t".			
 
 
-Book 2 - Examining
+Book 3 - Examining
 
 A thing can be examined or unexamined.  A thing is usually unexamined.  
 Carry out examining something:
 	now the noun is examined.
 	
-Book 3 - Listening and Sounds
 
-Book 4 - Odors
 
-Book 5 - Stairs
 
-Book 6 - Doors
 
-Book 2 - Reading / Writing
+ 	
+Book 4 - Listening and Sounds
+
+The report listening rule is not listed in any rulebook.
+A thing has some text called sound.  The sound of a thing is usually "silence".
+The player has some text called sound.  The sound of the player is usually "silence".
+
+Carry out listening to something:
+	say "From [the noun] you hear [sound of the noun]."
+
+instead of listening to a room:
+	if an audible thing can be touched by the player:
+		say "You hear [the list of audible things which can be touched by the player].";
+	otherwise:
+		say "You hear nothing unusual."
+	
+Definition: a thing is audible if the sound of it is not "silence".
+
+Before printing the name of something audible while listening to a room:
+	say "[sound] from the ".
+
+
+Book 5 - Odors
+
+A thing has some text called scent.  The scent of a thing is usually "odorless".
+The player has some text called scent.  The scent of the player is usually "odorless".
+
+The report smelling rule is not listed in any rulebook.
+
+carry out smelling something:
+	if the scent of the noun is "odorless":
+		say "You smell nothing unexpected.";
+	otherwise:
+		say "You detect [scent of the noun] emanating from [the noun]."
+
+instead of smelling a room:
+	if a smellable thing can be touched by the player, say "You smell [the list of smellable things which can be touched by the player].";
+	otherwise say "You smell nothing unexpected."
+	
+Definition: a thing is smellable if the scent of it is not "odorless".
+
+Book 6 - Stairs
+
+Book 7 - Doors
+
+Book 8 - Reading / Writing
 
 A thing has some text called printing.  The printing of a thing is usually "blank".
 
@@ -149,7 +194,7 @@ Definition:  a thing is legible if the printing of it is not "blank".
 
 After examining a legible thing:  try reading the noun.
 
-Book 8 - Properties of a room
+Book 9 - Properties of a room
 
 Definition: a room is locally-present if it is the location.
 
@@ -160,7 +205,7 @@ A room can be passable or impassible. A room is usually passable.
 Instead of going to an impassible room (this is the can't go to impassible rooms rule): say "You can't go that way any more."
 Instead of someone going to an impassible room (this is the NPCs can't go to impassible rooms rule): stop the action.
 
-Book 9 - Valid directions
+Book 10 - Valid directions
 
 Definition: a direction (called thataway) is viable if the room thataway from the location is a room.
 
@@ -172,7 +217,7 @@ Instead of going nowhere:
 	
 A direction can be proper-named. Down is proper-named. Up is proper-named.
 
-Book 10 - Look at Location as LOOK
+Book 11 - Look at Location as LOOK
 
 Understand "here" or "surroundings" as a room when the item described is the location.
 
@@ -185,7 +230,7 @@ Carry out local looking:
 	try looking.
 
 
-Book 3 Game start
+Book 12 Game start
 
 After printing the banner text, say "Copyright © 2013 - 2015, Falcon Fiction."
 The time of day is 11:00 PM.
@@ -197,7 +242,7 @@ When play begins:
 	now the player is in The-Pumpkin-Patch;
 	
 
-Book 4 Definitions
+Book 13 Definitions
 
 A person can be hiding.
 A person can be conscious or unconscious.  A person is usually conscious.
@@ -238,13 +283,13 @@ instead of doing anything to a flimsy:
 	if the action-refusal of the noun is "", say "[brush-off of noun]";
 	otherwise say "[action-refusal of the noun][paragraph break]".
 
-Book 5 Easter Eggs
+Book 14 Easter Eggs
 
 Understand "plugh" or "xyzzy" or "frotz" or "plover" as a mistake("Though you can't speak a noise arises from deep within.  The glow coming from your eyes briefly increases then just as quickly fades away.").
 Understand "* [text]" as a mistake("Noted.").
 
 
-Book 6 Player
+Book 15 Player
 
 The player is man named Jack.  The description of Jack is "You are very tall.  You are wearing [overalls] and a [flannel shirt].  There is [straw] slowly falling out of your sleeves and pants legs leaving a trail behind as you walk.  [first time]As you raise your hands to your heavy head and move to run your hands through your hair, you feel nothing but a cool, hard shell of a pumpkin.[only]"
 
@@ -265,59 +310,260 @@ Instead of taking off something worn by the player:
 Instead of jumping:
 	say "Jumping would only attract attention to yourself."
 
-Volume 6 Mechanics
+Volume 6 - New Actions
 
 
 Rule for printing a parser error when the latest parser error is the I beg your pardon error: 
 	say "What's that? Speak up, speak up." instead.
 
-Book 1 Acting Fast
+Book 1 - Reading
+
+Understand the command "read" as something new.
+Understand "read [something]" as reading.  Reading is an action applying to one thing, requiring light.
+
+Check reading:
+	if the noun is not legible:
+		say "Nothing is written on [the noun]." instead.
+		
+Carry out reading:
+	let typing be the printing of the noun;
+	say "You read: [i][typing][/i][p]".
+	
+Report reading: do nothing.
+
+Book 29 - Moving (separated)
+
+understand the command "shove" as "push".
+understand the command "move" as something new.
+
+moving is an action applying to one thing.
+understand "move [something]" as moving.
+
+report moving something
+(this is the moving rule):
+say "You can't move [the noun].".
+
+Book 2 - Talking and Shouting (new)
+
+understand the command "speak" as something new.
+
+talking is an action applying to nothing.
+understand "talk" as talking.
+
+talking to is an action applying to one thing.
+understand "talk to [something]" as talking to.
+understand "speak to [something]" as talking to.
+understand "talk to [someone]" as talking to.
+understand "speak to [someone]" as talking to.
+
+report talking 
+(this is the first talking rule):
+say "Who do you want to talk to?".
+
+report talking to something
+(this is the second talking rule):
+say "You can't [verbword] to [the noun].".
+
+understand the command "shout" as something new.
+shouting is an action applying to nothing.
+understand "shout" as shouting.
+understand "yell" as shouting.
+understand "scream" as shouting.
+understand "holler" as shouting.
+understand "bellow" as shouting.
+understand "screech" as shouting.
+understand "howl"   as shouting.
+understand "yowl"    as shouting.. 
+understand "wail"      as shouting. 
+understand "shriek"  as shouting. 
+understand "yelp"     as shouting.
+understand "squeal" as shouting. 
+
+shouting at is an action applying to one thing.
+understand "shout at [something]" as shouting at.
+understand "yell at [something]" as shouting at.
+understand "scream at [something]" as shouting at.
+understand "holler at [something]" as shouting at.
+understand "bellow at [something]" as shouting at.
+understand "screech at [something]" as shouting at.
+understand "howl at [something]" as shouting at.
+understand "yowl at [something]" as shouting at.
+understand "wail at [something]" as shouting at.
+understand "shriek at [something]" as shouting at. 
+understand "yelp at [something]" as shouting at.
+understand "squeal at [something]" as shouting at. 
+
+shouting to is an action applying to one thing.
+
+understand "shout to [something]" as shouting to.
+understand "yell to [something]" as shouting to.
+understand "scream to [something]" as shouting to.
+understand "holler to [something]" as shouting to.
+understand "bellow to [something]" as shouting to.
+understand "screech to [something]" as shouting to.
+understand "howl to [something]" as shouting to.
+understand "yowl to [something]" as shouting to.
+understand "wail to [something]" as shouting to.
+understand "shriek to [something]" as shouting to.
+understand "yelp to [something]" as shouting to.
+understand "squeal to [something]" as shouting to. 
+
+shouting it at is an action applying to two things.
+
+understand "shout [something] at [something]" as shouting it at.
+understand "yell [something] at [something]" as shouting it at.
+understand "scream [something] at [something]" as shouting it at.
+understand "holler [something] at [something]" as shouting it at.
+understand "bellow [something] at [something]" as shouting it at.
+understand "screech [something] at [something]" as shouting it at.
+understand "howl to [something] at [something]" as shouting it at.
+understand "yowl to [something]  at [something]" as shouting it at.
+understand "wail to [something] at [something]" as shouting it at.
+understand "shriek to [something] at [something]" as shouting it at.
+understand "yelp to [something] at [something]" as shouting it at.
+understand "squeal to [something] at [something]" as shouting it at.
+
+shouting it to is an action applying to two things.
+
+understand "shout [something] to [something]" as shouting it to.
+understand "yell [something] to [something]" as shouting it to.
+understand "scream [something] to [something]" as shouting it to.
+understand "holler [something] to [something]" as shouting it to.
+understand "bellow [something] to [something]" as shouting it to.
+understand "screech [something] to [something]" as shouting it to.
+understand "howl to [something]  to [something]" as shouting it to.
+understand "yowl to [something]  to [something]" as shouting it to.
+understand "wail to [something]  to [something]" as shouting it to.
+understand "shriek to [something]  to [something]" as shouting it to.
+understand "yelp to [something] to [something]" as shouting it to.
+understand "squeal to [something]  to [something]" as shouting it to.
+
+report shouting
+(this is the shouting rule): 
+say "You can't [verbword].";
+
+report shouting at something
+(this is the shouting at rule):
+say "You can't [verbword] at [the noun].".
+
+report shouting to something
+(this is the shouting to rule): 
+say "You can't [verbword] to [the noun].".	
+
+report shouting something at something
+(this is the shouting something at something rule): 
+say "You can't [verbword] [the noun] at [the second noun].".
+
+report shouting something to something
+(this is the shouting something to something rule): : 
+say "You can't [verbword] [the noun] to [the second noun].".
+
+Book 3 - Shooting 
+
+shooting is an action applying to one thing.
+understand "shoot [something]" as shooting .
+understand "shoot [someone]" as shooting.
+understand "fire [something]" as shooting.
+
+check shooting something
+(this is the can't shoot what you ain't got rule):
+if the noun is not carried by the player,
+say "You don't have [the noun]." instead.
+
+shooting it with is an action applying to two things.
+understand "shoot [something] with [something]" as shooting it with.
+understand "shoot [someone] with [something]" as shooting it with.
+
+shooting it at is an action applying to two things.
+understand "shoot [something] at [things]" as shooting it at. 
+understand "shoot [something] at [someone]" as shooting it at. 
+understand "fire [something] at [things]" as shooting it at. 
+understand "fire [something] at [someone]" as shooting it at. 
+
+report shooting something
+(this is the shooting rule):
+say "You can't [verbword] [the noun].";
+
+report shooting something with something
+(this is the shooting something with something rule):
+say "You can't shoot [the noun] with [the second noun].";
+
+report shooting something at something
+(this is the shooting at rule):
+say "You can't [verbword] [the noun] at [the second noun].";
+		
+Book 4 - Throwing
+
+understand the command "throw" as something new.
+throwing is an action applying to one thing.
+understand "chuck [things]" as throwing. 
+understand "heave [things]" as throwing. 
+understand "throw [things]" as throwing.
+understand "toss [things]" as throwing.
+understand "hurl [things]" as throwing. 
+understand "pitch [things]" as throwing.
+
+The futile to throw things at inanimate objects rule is not listed in the check throwing it at rules.
+The block throwing at rule is not listed in the check throwing it at rules.
+
+Check throwing it at (this is the block juggling rule):
+	if the player is carrying the second noun, say "It would be difficult to throw something you are yourself holding." instead.
+	
+Check throwing it at (this is the avoid throwing things worn rule):
+	if the player is wearing the noun, say "You'll want to keep that on instead of throwing it." instead.
+	
+Understand "throw [something] at [something]" as throwing it at.
+Understand "throw [something] on [something]" as throwing it at.
+Understand "throw [something] in [something]" as throwing it at.
+
+
+Book 5 Acting Fast
 
 Examining something is acting fast. Looking is acting fast.  Taking inventory is acting fast.
 
 The take visual actions out of world rule is listed before the every turn stage rule in the turn sequence rules.
 This is the take visual actions out of world rule: if acting fast, rule succeeds.
 
-Book 3 Looking
+Book 6 Looking
 
+Chapter 1 Looking toward something
 
-Chapter 1 Looking in a direction
-
-instead of looking south, try facing south instead.
-instead of looking north, try facing north instead.
-instead of looking east, try facing east instead.
-instead of looking west, try facing west instead.
-instead of looking northeast, try facing northeast instead.
-instead of looking northwest, try facing northwest instead.
-instead of looking southeast, try facing  southeast instead.
-instead of looking southwest, try facing southwest instead.
-
-Understand "look [direction]" as facing.
-Facing is an action applying to one visible thing.
-
-Carry out facing: 
-	let the viewed item be the room noun from the location; 
-	if the viewed item is not a room, say "There is nothing interesting in that direction." instead; 
-	try looking toward the viewed item.
-
-Instead of looking up: 
-	say "Above you is a cloudless dark sky lit by the full moon."
-
-Instead of looking down: 
-	say "You stare down at the ground and feel an urge to just lie down and let it end, but something far stronger is pulling you onward."
-
-Chapter 2 Looking toward something
-
-Understand "examine [any adjacent room]" as examining.
-Instead of examining a room: 
-	say "Over in [the prose name of the noun], you can see [a list of visible things in the noun]."
-
-Understand "look toward [any adjacent room]/examine [any adjacent room]" as looking toward. 
 Looking toward is an action applying to one visible thing.
+Understand "look toward [any adjacent room]" as looking toward.
+
+[Understand "examine [any adjacent room]" as looking toward.]
+[Understand "look toward [a thing]" as looking toward. ]
+[Instead of examining a room: 
+	say "Over in [the prose name of the noun], you can see [a list of visible things in the noun]."]
+
 Carry out looking toward: 
 	say "You make out [the prose name of the noun] that way."
 
-Book 4 Secret Doors
+
+Chapter 2 Looking in a direction
+
+Understand "look [direction]" as facing.
+Facing is an action applying to one visible thing.
+Instead of examining a direction, try facing the noun.
+
+
+
+Check facing: 
+	let the viewed item be the room noun from the location; 
+	if the viewed item is a room:
+		try looking toward the viewed item instead.
+
+Carry out facing:
+	say "There is nothing interesting in that direction.";
+
+Carry out facing up:
+	say "Above you is a cloudless dark sky lit by the full moon."
+
+Carry out facing down:
+	say "You stare down at the ground and feel an urge to just lie down and let it end, but something far stronger is pulling you onward."
+
+
+Book 7 Secret Doors
 
 [Adapted from Secret Doors extension by Andrew Owen]
 A secret door is a kind of door.
@@ -517,10 +763,7 @@ The rifle is carried by the patroller.
 
 Section 7 Actions
 
-The futile to throw things at inanimate objects rule is not listed in the check throwing it at rules.
-The block throwing at rule is not listed in the check throwing it at rules.
-
-Instead of throwing the hubcap:
+Instead of throwing hubcap:
 	if location is edge-of-town:
 		say "As quitely as you can you toss the hubcap out into the field next to the road.  A loud cling rings through the still night.  The man stops in his track, looks in the direction of the noise and then takes off running yelling 'I've found him boys he's over here.' and disappears into the darkness.";
 		now the hubcap is off-stage;
