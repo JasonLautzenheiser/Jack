@@ -331,7 +331,7 @@ Carry out reading:
 	
 Report reading: do nothing.
 
-Book 29 - Moving (separated)
+Book 2 - Moving (separated)
 
 understand the command "shove" as "push".
 understand the command "move" as something new.
@@ -343,7 +343,7 @@ report moving something
 (this is the moving rule):
 say "You can't move [the noun].".
 
-Book 2 - Talking and Shouting (new)
+Book 3 - Talking and Shouting (new)
 
 understand the command "speak" as something new.
 
@@ -458,7 +458,7 @@ report shouting something to something
 (this is the shouting something to something rule): : 
 say "You can't [verbword] [the noun] to [the second noun].".
 
-Book 3 - Shooting 
+Book 4 - Shooting 
 
 shooting is an action applying to one thing.
 understand "shoot [something]" as shooting .
@@ -492,7 +492,7 @@ report shooting something at something
 (this is the shooting at rule):
 say "You can't [verbword] [the noun] at [the second noun].";
 		
-Book 4 - Throwing
+Book 5 - Throwing
 
 understand the command "throw" as something new.
 throwing is an action applying to one thing.
@@ -517,24 +517,23 @@ Understand "throw [something] on [something]" as throwing it at.
 Understand "throw [something] in [something]" as throwing it at.
 
 
-Book 5 Acting Fast
+Book 6 Acting Fast
 
 Examining something is acting fast. Looking is acting fast.  Taking inventory is acting fast.
 
 The take visual actions out of world rule is listed before the every turn stage rule in the turn sequence rules.
 This is the take visual actions out of world rule: if acting fast, rule succeeds.
 
-Book 6 Looking
+Book 7 Looking
 
 Chapter 1 Looking toward something
 
 Looking toward is an action applying to one visible thing.
 Understand "look toward [any adjacent room]" as looking toward.
-
-[Understand "examine [any adjacent room]" as looking toward.]
-[Understand "look toward [a thing]" as looking toward. ]
-[Instead of examining a room: 
-	say "Over in [the prose name of the noun], you can see [a list of visible things in the noun]."]
+Understand "examine [any adjacent room]" as looking toward.
+Understand "look toward [a thing]" as looking toward. 
+Instead of examining a room: 
+	say "Over in [the prose name of the noun], you can see [a list of visible things in the noun]."
 
 Carry out looking toward: 
 	say "You make out [the prose name of the noun] that way."
@@ -546,24 +545,24 @@ Understand "look [direction]" as facing.
 Facing is an action applying to one visible thing.
 Instead of examining a direction, try facing the noun.
 
-
-
 Check facing: 
 	let the viewed item be the room noun from the location; 
 	if the viewed item is a room:
 		try looking toward the viewed item instead.
 
+Carry out facing up:
+	say "Above you is a cloudless dark sky lit by the full moon." instead.
+
+Carry out facing down:
+	say "You stare down at the ground and feel an urge to just lie down and let it end, but something far stronger is pulling you onward." instead.
+
+
 Carry out facing:
 	say "There is nothing interesting in that direction.";
 
-Carry out facing up:
-	say "Above you is a cloudless dark sky lit by the full moon."
-
-Carry out facing down:
-	say "You stare down at the ground and feel an urge to just lie down and let it end, but something far stronger is pulling you onward."
 
 
-Book 7 Secret Doors
+Book 8 Secret Doors
 
 [Adapted from Secret Doors extension by Andrew Owen]
 A secret door is a kind of door.
