@@ -137,10 +137,6 @@ A thing can be examined or unexamined.  A thing is usually unexamined.
 Carry out examining something:
 	now the noun is examined.
 	
-
-
-
-
  	
 Book 4 - Listening and Sounds
 
@@ -291,7 +287,7 @@ Understand "* [text]" as a mistake("Noted.").
 
 Book 15 Player
 
-The player is man named Jack.  The description of Jack is "You are very tall.  You are wearing [overalls] and a [flannel shirt].  There is [straw] slowly falling out of your sleeves and pants legs leaving a trail behind as you walk.  [first time]As you raise your hands to your heavy head and move to run your hands through your hair, you feel nothing but a cool, hard shell of a pumpkin.[only]"
+The player is man named Jack.  The description of Jack is "You are very tall.  You are wearing [overalls] and a [flannel shirt].  [Straw] slowly falls from your sleeves and pants leaving a trail behind as you walk.  [first time]As you raise your hands to your heavy head and move to run your hands through your hair, you feel nothing but a cool, hard shell of a pumpkin.[only]"
 
 Understand "you" or "body" as yourself.
 
@@ -304,7 +300,7 @@ The straw is a wearable thing.  The description of the straw is "The straw seems
 The overalls is worn by the player.  The flannel shirt is worn by the player.
 
 Instead of taking off something worn by the player:
-	say "You can't remove your clothing."
+	say "Your clothing is the only thing holding your body of straw together."
 	
 
 Instead of jumping:
@@ -551,10 +547,10 @@ Check facing:
 		try looking toward the viewed item instead.
 
 Carry out facing up:
-	say "Above you is a cloudless dark sky lit by the full moon." instead.
+	say "Above you is a cloudless sky lit by the full moon." instead.
 
 Carry out facing down:
-	say "You stare down at the ground and feel an urge to just lie down and let it end, but something far stronger is pulling you onward." instead.
+	say "You stare at the ground and feel an urge to just lie down and let it end, but something far stronger is pulling you onward." instead.
 
 
 Carry out facing:
@@ -623,7 +619,7 @@ Outside-town is a region.
 
 Chapter 1 Pumpkin Patch
 
-The-Pumpkin-Patch is a room.  The-pumpkin-patch is in outside-town.  The printed name is "In the Pumpkin Patch".  The description is "You are standing in a middle of a pumpkin patch.   The light from the [full moon] allows you to see some distance around you.  The pumpkin patch goes on as far as you can see except to the south where you can make the outline of a [road]."
+The-Pumpkin-Patch is a room.  The-pumpkin-patch is in outside-town.  The printed name is "In the Pumpkin Patch".  The description is "You are standing in a middle of a pumpkin patch.   The light from the [full moon] allows you to see some distance around you.  The pumpkin patch goes on in all directions except to the south where you can make the outline of a [road]."
 
 Understand "pumpkin patch" as the-pumpkin-patch.
 
