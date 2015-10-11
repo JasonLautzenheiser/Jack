@@ -226,13 +226,13 @@ Carry out local looking:
 	try looking.
 
 
-Book 12 Game start
+Book 12 - Game start
 
 After printing the banner text, say "Copyright © 2013 - 2015, Falcon Fiction."
 The time of day is 11:00 PM.
 
 When play begins:
-	say "Suddenly awareness comes to you and your surroundings.  You look around slowly, seeing nothing at first, then in the moon light you find yourself in the middle of a pumpkin patch.   Looking down at your feet you see straw coming out of the bottom of your pants and fallling over your boots.  In wonderment you notice your hands for the first time and see straw coming out of your sleeves as well.  As you stare at your hands you notice a strange glow seemingly coming from within you.  You start to run your fingers through your hair only to realize you have none.  As you stand there in shock over what you've become you realize you have nothing but vague memories of a time before the pumpkin patch.  You look around and see large pumpkins that seem to have the same shape as your head.  It all comes flooding back to you.....you are Jack....Jack Halloween.";
+	say "Suddenly awareness comes to you.  You look around slowly, seeing nothing at first, then in the moon light you find yourself in the middle of a pumpkin patch.   Looking down at your feet there is straw coming out of the bottom of your pants and falling over your boots.  In wonderment you notice your hands for the first time and see straw coming out of your sleeves as well.  As you stare at your hands you notice a strange glow seemingly coming from within you.  You start to run your fingers through your hair only to realize you have none.  As you stand there in shock over what you've become you realize you have nothing but vague memories of a time before the pumpkin patch.  You look around and see large pumpkins that seem to have the same shape as your head.  It all comes flooding back to you.....you are Jack....Jack Halloween.";
 	now the left hand status line is "[the player's surroundings] / Moves: [turn count] ";
 	now the right hand status line is "Time: [time of day]";
 	now the player is in The-Pumpkin-Patch;
