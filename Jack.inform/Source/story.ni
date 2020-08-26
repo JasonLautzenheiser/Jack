@@ -693,7 +693,7 @@ To say edge-of-town-description:
 	if player is in pickup-truck:
 		say "You're sitting in the pickup truck facing the road out to the pumpkin patch.";
 	otherwise:
-		say "You have come to [prose name of edge-of-town].  A tall [chainlink fence] stretches on either side of the road as far as you can see.  [first time][paragraph break]As you come closer you see some movement near the barrier across the road and you quickly crouch in the shadows not wanting to be seen.  A moment later you see the movement again and you can just make out someone patrolling back and forth across the road.  There is no way to get around him without being seen.  Perhaps you could distract him somehow.[only][line break][if pickup-truck is in edge-of-town]There is a truck sitting along the road"
+		say "You have come to [prose name of edge-of-town].  A tall [chainlink fence] stretches on either side of the road as far as you can see. [paragraph break][first time]As you come closer you see some movement near the barrier across the road and you quickly crouch in the shadows not wanting to be seen.  A moment later you see the movement again and you can just make out someone patrolling back and forth across the road.  There is no way to get around him without being seen.  Perhaps you could distract him somehow.[paragraph break][only][if pickup-truck is in edge-of-town]There is a truck sitting along the road"
 
 Report going to the edge-of-town for the first time:
 	now the player is hiding.
@@ -714,9 +714,9 @@ Before listing nondescript items when the patroller is unconscious:
 
 Section 2 Pickup Truck
 
-The pickup-truck is a enterable openable transparent closed fixed in place undescribed container. The prose name of pickup-truck is "pickup truck".   The pickup-truck is locked.  The description of the pickup-truck is "The rusty blue Ford truck sitting along the edge of the road has seen better days.  [if number of things in the truck-bed is greater than 0]Leaning against the bed of the truck you see [a list of things in the truck-bed].[end if]".  The pickup-truck is in the edge-of-town.
+The pickup-truck is a enterable openable transparent closed fixed in place undescribed vehicle. The printed name of pickup-truck is "pickup truck". The prose name of pickup-truck is "pickup truck".   The pickup-truck is locked.  The description of the pickup-truck is "The rusty blue Ford truck sitting along the edge of the road has seen better days.  [if number of things in the truck-bed is greater than 0]Leaning against the bed of the truck you see [a list of things in the truck-bed].[end if]".  The pickup-truck is in the edge-of-town.
 
-Understand "car/truck/ford/pickup truck/blue" as pickup-truck.
+Understand "car" or "truck" or "ford" or "pickup truck" or "blue" as pickup-truck.
 
 The truck-bed is an open container.  The truck-bed is part of the pickup-truck.  The prose name of truck-bed is "the truck bed".
 Understand  "bed/truckbed" as truck-bed
