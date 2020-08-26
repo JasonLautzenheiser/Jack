@@ -1,6 +1,10 @@
 # Jack
 Inform 7 Game - Originally an entry in EctoComp 2013.
 
+#### Update
+
+8/25/2020 - Open sourced the project and beginning to make some updates to try and finish this up.   In it's EctoComp form, it was rushed and incomplete.  However, while going back and reviewing some of the reviews it actually got some favorable feedback and people were hoping to see it polished up.  So I'm gonna attempt to do that now.
+
 #### Background
 
 Since it's initial release in 2013 for the EctoComp competition, I've sporadically toyed with this one and added things here and there, though nothing concrete and nothing in over a year as of this writing (October 2015).  Since then I've improved my coding quite a bit and have learned so much about game development / design that I thought I'd come back to my very first release and try and improve upon it.
