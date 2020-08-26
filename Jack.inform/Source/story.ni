@@ -1,33 +1,61 @@
  "Jack" by Jason Lautzenheiser
 
-Volume 1 - Bibliography
+Volume 1 - Metadata
+
+Book 1 - Bibliography
 
 The story genre is "Horror".
 The story headline is "A Halloween Story".
 The story author is "Jason Lautzenheiser".
 The release number is 2.
-The story creation year is 2015.
+The story creation year is 2020.
 
-
-
-Volume 2 - Extensions
-
-Include Punctuation Removal by Emily Short.
-[Include Supplemental Actions by Al Golden.]
-Include Typographical Conveniences by Daniel Stelzer.
-
-Volume 3 - Extensions (not for release)
-
-Include Response Assistant by Aaron Reed.
-
-Use no scoring and full-length room descriptions. 
-Use American dialect.
-
-Volume 4 - Release
+Book 2 - Release
 
 Release along with cover art.
 
-Volume 5 - Game Settings
+Book 3 - Extensions
+
+Part 1 - Public
+
+Include Punctuation Removal by Emily Short.
+[Include Supplemental Actions by Al Golden.]
+[Include Typographical Conveniences by Daniel Stelzer.]
+
+Part 2 - Extensions (not for release)
+
+Include Response Assistant by Aaron Reed.
+
+Book 3 - Versioning (not for release)
+
+report requesting the story file version:
+	say "[i]Internal alpha 1.1[/i]"
+
+Book 7 - Not for release
+
+[Some code provded by Matthew Slattery to increase the size of the Glk game during the writing cycle...:]
+Include (-
+
+[ INitGlkWindow rock incr i base;
+	if (rock == GG_MAINWIN_ROCK) {
+		incr = 2;	! adjust to taste
+		for (i= 0 : i < style_NUMSTYLES : i++) {
+			switch (i) {
+				style_Header: base = 4;
+				style_Subheader: base = 1;
+				style_Alert: base = 1;
+				default: base = 0;
+			}
+			glk_stylehint_set(wintype_AllTypes, i, stylehint_Size, base + incr);
+		}
+	}
+	rfalse;
+];
+
+-) after "Definitions.i6t".			
+
+
+Volume 2 - Game Settings
 
 Book 1 - Credits
 
@@ -36,7 +64,7 @@ Understand "about" as abouting.
 Understand  the command "credits" or "info" as "about".
 
 Report abouting:
-	say "[Story Title] was created originally for the EctoComp13 and was created in under 3 hours in Inform 7.  The first release was quickly beta-tested by my son Trey Lautzenheiser, who doesn't normally play IF, but offered some valuable advice.  I've since expanded the game into something a bit more fleshed out.  Hope you enjoy.  
+	say "[Story Title] was created originally for the EctoComp13 and was created in under 3 hours in Inform 7.  The first release was quickly beta-tested by my son Trey Lautzenheiser, who doesn't normally play IF, but offered some valuable advice.  While it's taken me a few years, in 2020 I expanded the game and hopefully took out some of the rough edges.  Hope you enjoy.  
 	
 It may be distributed for free, but not sold or included in any for-profit collection without written permission from the author.
 	
@@ -100,35 +128,8 @@ Part 6 - Input editing
 First after reading a command:
 	remove stray punctuation.
 
-Part 7 - Versioning
 
-report requesting the story file version:
-	say "[i]Internal alpha 1.1[/i]"
 
-Part 8 - Not for release
-
-When play begins, seed the random-number generator with 69.
-
-[Some code provded by Matthew Slattery to increase the size of the Glk game during the writing cycle...:]
-Include (-
-
-[ INitGlkWindow rock incr i base;
-	if (rock == GG_MAINWIN_ROCK) {
-		incr = 2;	! adjust to taste
-		for (i= 0 : i < style_NUMSTYLES : i++) {
-			switch (i) {
-				style_Header: base = 4;
-				style_Subheader: base = 1;
-				style_Alert: base = 1;
-				default: base = 0;
-			}
-			glk_stylehint_set(wintype_AllTypes, i, stylehint_Size, base + incr);
-		}
-	}
-	rfalse;
-];
-
--) after "Definitions.i6t".			
 
 
 Book 3 - Examining
@@ -178,10 +179,6 @@ instead of smelling a room:
 	
 Definition: a thing is smellable if the scent of it is not "odorless".
 
-Book 6 - Stairs
-
-Book 7 - Doors
-
 Book 8 - Reading / Writing
 
 A thing has some text called printing.  The printing of a thing is usually "blank".
@@ -228,7 +225,7 @@ Carry out local looking:
 
 Book 12 - Game start
 
-After printing the banner text, say "Copyright © 2013 - 2015, Falcon Fiction."
+After printing the banner text, say "Copyright © 2013 - 2020, Falcon Fiction."
 The time of day is 11:00 PM.
 
 When play begins:
@@ -306,7 +303,7 @@ Instead of taking off something worn by the player:
 Instead of jumping:
 	say "Jumping would only attract attention to yourself."
 
-Volume 6 - New Actions
+Volume 3 - New Actions
 
 
 Rule for printing a parser error when the latest parser error is the I beg your pardon error: 
@@ -434,25 +431,20 @@ understand "shriek to [something]  to [something]" as shouting it to.
 understand "yelp to [something] to [something]" as shouting it to.
 understand "squeal to [something]  to [something]" as shouting it to.
 
-report shouting
-(this is the shouting rule): 
-say "You can't [verbword].";
+report shouting (this is the shouting rule): 
+	say "You can't [verbword].";
 
-report shouting at something
-(this is the shouting at rule):
-say "You can't [verbword] at [the noun].".
+report shouting at something (this is the shouting at rule):
+	say "You can't [verbword] at [the noun].".
 
-report shouting to something
-(this is the shouting to rule): 
-say "You can't [verbword] to [the noun].".	
+report shouting to something (this is the shouting to rule): 
+	say "You can't [verbword] to [the noun].".	
 
-report shouting something at something
-(this is the shouting something at something rule): 
-say "You can't [verbword] [the noun] at [the second noun].".
+report shouting something at something (this is the shouting something at something rule): 
+	say "You can't [verbword] [the noun] at [the second noun].".
 
-report shouting something to something
-(this is the shouting something to something rule): : 
-say "You can't [verbword] [the noun] to [the second noun].".
+report shouting something to something (this is the shouting something to something rule): 
+	say "You can't [verbword] [the noun] to [the second noun].".
 
 Book 4 - Shooting 
 
@@ -596,7 +588,7 @@ Before doing something when a secret switch is the second noun and the second no
 	print the you can't see message instead.]
 	
 	
-Volume 7 The World
+Volume 4 The World
 
 Book 1 Fardrops
 
@@ -627,7 +619,7 @@ The prose name of The-Pumpkin-Patch is "the pumpkin patch".
 
 Chapter 2 Road
 
-The Road is a room.  The road is in outside-town. The printed name is "road".  The road is south of The-Pumpkin-Patch.  The description is "[if the player is hiding]You are lying in the ditch along side the road.  In the darkness, you probably look like nothing more than another pumpkin amongst thousands.[otherwise]You are standing in the middle of a dirt road to the south of a large field of pumpkins.  Along the north side of the road is a shallow ditch.  The road stretches on to the east and west.[end if][if not visited][paragraph break]Looking up the road, you see a set of [headlights] headed in your direction.  Something screams in your very soul that you need to hide, you don't think it would be wise to be caught in the open in your state."
+The Road is a room.  The road is in outside-town. The printed name of road is "The Road".  The road is south of The-Pumpkin-Patch.  The description is "[if the player is hiding]You are lying in the ditch along side the road.  In the darkness, you probably look like nothing more than another pumpkin amongst thousands.[otherwise]You are standing in the middle of a dirt road to the south of a large field of pumpkins.  Along the north side of the road is a shallow ditch.  The road stretches on to the east and west.[end if][if not visited][paragraph break]Looking up the road, you see a set of [headlights] headed in your direction.  Something screams in your very soul that you need to hide, you don't think it would be wise to be caught in the open in your state."
 The prose name of road is "the road".
 
 Report going to the road for the first time:
@@ -695,13 +687,13 @@ Chapter 3 Edge of town
 
 The edge-of-town is a room.  The edge-of-town is in outside-town.  The printed name is "The Edge of Town".  The edge-of-town is east of the road.   The prose name of edge-of-town is "the edge of town".
 
-The description is "[edge-of-town-description]".
+The description is "[edge-of-town-description]."
 
 To say edge-of-town-description:
-	if player is in pickup truck:
+	if player is in pickup-truck:
 		say "You're sitting in the pickup truck facing the road out to the pumpkin patch.";
 	otherwise:
-		say "You have come to the edge of town.  A tall [chainlink fence] stretches on either side of the road as far as you can see.  [first time][paragraph break]As you come closer you see some movement near the barrier across the road and you quickly crouch in the shadows not wanting to be seen.  A moment later you see the movement again and you can just make out someone patrolling back and forth across the road.  There is no way to get around him without being seen.  Perhaps you could distract him somehow.[only]".
+		say "You have come to [prose name of edge-of-town].  A tall [chainlink fence] stretches on either side of the road as far as you can see.  [first time][paragraph break]As you come closer you see some movement near the barrier across the road and you quickly crouch in the shadows not wanting to be seen.  A moment later you see the movement again and you can just make out someone patrolling back and forth across the road.  There is no way to get around him without being seen.  Perhaps you could distract him somehow.[only][line break][if pickup-truck is in edge-of-town]There is a truck sitting along the road"
 
 Report going to the edge-of-town for the first time:
 	now the player is hiding.
@@ -709,7 +701,7 @@ Report going to the edge-of-town for the first time:
 
 Section 1 Patroller
 
-The patroller is a man.  The printed name of patroller is "young man".  The patroller is in the edge-of-town.  The patroller is conscious.  The description of the patroller is "He is just a young boy, perhaps in his early teens.  [if the patroller is conscious]In one hand he carries a large machete and slung from one shoulder is a rifle.[end if]  [if the patroller is unconscious and the patroller is alive]He is laying on the ground with a large lump on his head.  He appears to still be breathing so he may come to at any moment so you may want to hurry.[end if][if the patroller is dead]Embedded in his head is the hubcap you just threw.[end if]".
+The patroller is an undescribed man.  The printed name of patroller is "young man".  The patroller is in the edge-of-town.  The patroller is conscious.  The description of the patroller is "He is just a young boy, perhaps in his early teens.  [if the patroller is conscious]In one hand he carries a large machete and slung from one shoulder is a rifle.[end if]  [if the patroller is unconscious and the patroller is alive]He is laying on the ground with a large lump on his head.  He appears to still be breathing so he may come to at any moment so you may want to hurry.[end if][if the patroller is dead]Embedded in his head is the hubcap you just threw.[end if]".
 
 Understand "man/teen" or "young man" as patroller.
 
@@ -722,16 +714,16 @@ Before listing nondescript items when the patroller is unconscious:
 
 Section 2 Pickup Truck
 
-The pickup truck is a enterable openable transparent closed fixed in place container.   The pickup truck is locked.  The initial appearance of the pickup truck is "The rusty blue Ford truck sitting along the edge of the road has seen better days.  [if number of things in the truck-bed is greater than 0]Leaning against the bed of the truck you see [a list of things in the truck-bed].[end if]".  The pickup truck is in the edge-of-town.
+The pickup-truck is a enterable openable transparent closed fixed in place undescribed container. The prose name of pickup-truck is "pickup truck".   The pickup-truck is locked.  The description of the pickup-truck is "The rusty blue Ford truck sitting along the edge of the road has seen better days.  [if number of things in the truck-bed is greater than 0]Leaning against the bed of the truck you see [a list of things in the truck-bed].[end if]".  The pickup-truck is in the edge-of-town.
 
-Understand "car/door" as pickup truck.
+Understand "car/truck/ford/pickup truck/blue" as pickup-truck.
 
-The truck-bed is an open container.  The truck-bed is part of the pickup truck.  The prose name of truck-bed is "the truck bed".
+The truck-bed is an open container.  The truck-bed is part of the pickup-truck.  The prose name of truck-bed is "the truck bed".
 Understand  "bed/truckbed" as truck-bed
 
-Instead of opening the pickup truck: 
-	try entering the pickup truck  instead.
-Instead of entering the pickup truck:
+Instead of opening the pickup-truck: 
+	try entering the pickup-truck  instead.
+Instead of entering the pickup-truck:
 	say "You attempt to open the truck but it is locked."
 
 Section 3 Shovel
@@ -836,7 +828,7 @@ Report going to the town-square:
 
 Section 1 Fountain
 
-Before examining something not carried by the player when the shooter is alive:
+Before examining something not carried by the player when the shooter is alive and the location is town-square:
 	if the noun is the clock tower:
 		continue the action;
 	else:
@@ -1114,10 +1106,23 @@ Instead of lying down when the location is the road:
 	say "You lie down in the ditch along the road.";
 	now the player is hiding.
 
-Volume 8 Tests
+Volume 5 - Tests
 
 test edgeoftown with "s/hide/z/e".
 test church with "s/hide/z/e/throw hubcap at man/take all/e/x clock tower/shoot shooter/n".
 
+Volume 6 - Shortcut Conveniences (Thanks to Daniel Stelzer)
 
+To say i -- beginning say_i -- running on: (- style underline; -).
+To say /i -- ending say_i -- running on: (- style roman; -).
+To say b -- beginning say_b -- running on: (- style bold; -).
+To say /b -- ending say_b -- running on: (- style roman; -).
 
+To say p -- running on: (- DivideParagraphPoint(); new_line; -).
+To say br -- running on: (- new_line; -).
+To say r -- running on: (- RunParagraphOn(); -).
+
+To say note -- beginning say_note -- running on: (- style underline; -).
+To say /note -- ending say_note -- running on: (- style roman; -).
+To say alert -- beginning say_alert -- running on: (- style bold; -).
+To say /alert -- ending say_alert -- running on: (- style roman; -).
