@@ -716,7 +716,7 @@ Section 2 Pickup Truck
 
 The pickup-truck is a enterable openable transparent closed fixed in place undescribed vehicle. The printed name of pickup-truck is "pickup truck". The prose name of pickup-truck is "pickup truck".   The pickup-truck is locked.  The description of the pickup-truck is "The rusty blue Ford truck sitting along the edge of the road has seen better days.  [if number of things in the truck-bed is greater than 0]Leaning against the bed of the truck you see [a list of things in the truck-bed].[end if]".  The pickup-truck is in the edge-of-town.
 
-Understand "car" or "truck" or "ford" or "pickup truck" or "blue" as pickup-truck.
+Understand "car" or "truck" or "ford" or "pickup truck" or "blue" or "pickup" or "rusty" as pickup-truck.
 
 The truck-bed is an open container.  The truck-bed is part of the pickup-truck.  The prose name of truck-bed is "the truck bed".
 Understand  "bed/truckbed" as truck-bed
@@ -769,9 +769,9 @@ instead of attacking the patroller:
 			else:
 				say "You may appear to be a monster, but attacking the young man when he is unconscious would serve no purpose."
 
-Instead of taking the hubcap:
+before taking the hubcap:
 	if the patroller is dead:
-		say "That is embedded in his skull....I don't think you want to take that.".		
+		say "That is embedded in his skull....I don't think you want to take that." instead.		
 
 Instead of throwing the hubcap at the patroller:
 	if the patroller is on-stage:
