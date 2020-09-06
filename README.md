@@ -2,6 +2,8 @@
 Inform 7 Game - Originally an entry in EctoComp 2013.
 
 #### Update
+9/1/2020 - Created an Inform 6 version of this project.  Mainly to learn Inform 6, but also that is where I'll be finishing the story started here.  You can check that repo out at https://github.com/JasonLautzenheiser/Jack-I6
+
 
 8/25/2020 - Open sourced the project and beginning to make some updates to try and finish this up.   In it's EctoComp form, it was rushed and incomplete.  However, while going back and reviewing some of the reviews it actually got some favorable feedback and people were hoping to see it polished up.  So I'm gonna attempt to do that now.
 
